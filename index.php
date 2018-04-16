@@ -51,4 +51,45 @@
 					<li>Comment Reply (weak)</li>
 				</ol>
 			</div>
+		<div>
+			<h2>User (strong)</h2>
+			<ul>
+				<li>userId</li>
+				<li>userEmail</li>
+				<li>userActivationToken (for account verification)</li>
+			</ul>
+			<h2>Author (strong)</h2>
+			<ul>
+				<li>authorID (primary key)</li>
+				<li>authorProfile</li>
+			</ul>
+			<h2>Post (weak)</h2>
+			<ul>
+				<li>authorID (foreign key)</li>
+				<li>postTime</li>
+				<li>postCategory</li>
+				<li>postContent</li>
+				<li>postID</li>
+				<li>commentId (foreign key)</li>
+			</ul>
+			<h2>Comment (weak)</h2>
+			<ul>
+				<li>commentId (primary key)</li>
+				<li>commentTimeDate</li>
+				<li>userId (foreign key)</li>
+				<li>commentContent</li>
+			</ul>
+			<h2>Hype (weak)</h2>
+			<ul>
+				<li>userId (foreign key)</li>
+				<li>hypeId</li>
+				<li>hypeTime</li>
+			</ul>
+			<h2>Comment Reply (weak)</h2>
+			<ul>
+				<li>userId (foreign key)</li>
+				<li>commentReplyContext</li>
+				<li>commentReplyTime</li>
+			</ul>
+		</div>
 </html>
