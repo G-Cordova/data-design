@@ -4,7 +4,7 @@
 		<title>datadesign</title>
 	</head>
 	<body>
-		<h1>Front End</h1>
+		<h1>Frontend</h1>
 		<div>
 			<h2>Persona: User</h2>
 			<ul>
@@ -20,13 +20,13 @@
 			</ul>
 		</div>
 		<div>
-			<h1>User Story</h1>
+			<h2>User Story</h2>
 			<ul>
 				<li>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive opinion that he would like to comment on the post because he is impressed by the quality and design.</li>
 			</ul>
 		</div>
 		<div>
-			<h1>Use Case/Interaction Flow</h1>
+			<h2>Use Case/Interaction Flow</h2>
 			<ul>
 				<li>User sees a post that interests him and clicks on it.</li>
 				<li>Website directs the user to a different page that displays the full post along with various additional options on the page.</li>
@@ -38,4 +38,17 @@
 			</ul>
 		</div>
 	</body>
+	<body>
+			<h1>Backend</h1>
+			<div>
+				<h2>Entities</h2>
+				<ol>
+					<li>User (strong)</li>
+					<li>Author (strong)</li>
+					<li>Post (weak)</li>
+					<li>Comment (weak)</li>
+					<li>Hype (wea)</li>
+					<li>Comment Reply (weak)</li>
+				</ol>
+			</div>
 </html>
