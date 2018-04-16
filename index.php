@@ -19,5 +19,11 @@
 				<li>Art also participates in other blogs as well. However, he returns to Hypebest frequently because of it's consistancy in the quality of posts.</li>
 			</ul>
 		</div>
+		<div>
+			<h1>User Story</h1>
+			<ul>
+				<li>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive opinion that he would like to comment on the post because he is impressed by the quality and design.</li>
+			</ul>
+		</div>
 	</body>
 </html>
