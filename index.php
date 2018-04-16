@@ -102,12 +102,12 @@
 		<div>
 			<h2>Relations</h2>
 			<ul>
-				<li>Authors can have many posts.</li>
-				<li>Users can have many comments.</li>
-				<li>Users can have many hypes.</li>
-				<li>Posts can have many hypes.</li>
-				<li>Users can have many comment replies.</li>
-				<li>Comments can have many comment replies.</li>
+				<li>Authors can have many posts.(m-n)</li>
+				<li>Users can have many comments.(m-n)</li>
+				<li>Users can have many hypes.(m-n)</li>
+				<li>Posts can have many hypes.(m-n)</li>
+				<li>Users can have many comment replies.(m-n)</li>
+				<li>Comments can have many comment replies.(m-n)</li>
 			</ul>
 		</div>
 </html>
