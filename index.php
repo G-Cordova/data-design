@@ -24,7 +24,7 @@
 		</div>
 		<div>
 			<h2>User Story</h2>
-			<p>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive interpretation that he would like to showcase on the post by contributing a "Hype" because he is impressed by the quality and design.</p>
+			<p>Art has read a post that he wants to "Hype".</p>
 		</div>
 		<div>
 			<h2>Use Case/Interaction Flow</h2>
@@ -41,36 +41,37 @@
 			<div>
 				<h2>Entities</h2>
 				<ol>
-					<li>User (strong)</li>
 					<li>Author (strong)</li>
-					<li>Post (weak)</li>
 					<li>Hype (weak)</li>
+					<li>Post (strong)</li>
+					<li>User (strong)</li>
 				</ol>
 			</div>
 		<div>
 			<h2>User (strong)</h2>
 			<ul>
-				<li>userId</li>
-				<li>userEmail</li>
+				<li>userId (Primary key)</li>
+				<li>userName</li>
 				<li>userActivationToken (for account verification)</li>
+				<li>userEmail</li>
+				<li>userHash</li>
 			</ul>
 			<h2>Author (strong)</h2>
 			<ul>
-				<li>authorID (primary key)</li>
+				<li>authorId (primary key)</li>
 				<li>authorName</li>
 			</ul>
-			<h2>Post (weak)</h2>
+			<h2>Post (strong)</h2>
 			<ul>
-				<li>authorID (foreign key)</li>
-				<li>postTime</li>
-				<li>postCategory</li>
+				<li>postId (primary key)</li>
+				<li>postAuthorId (foreign key)</li>
 				<li>postContent</li>
-				<li>postID (primary key)</li>
+				<li>postDateTime</li>
 			</ul>
 			<h2>Hype (weak)</h2>
 			<ul>
-				<li>userId (foreign key)</li>
-				<li>postId (foreign key)</li>
+				<li>hypeUserId (foreign key)</li>
+				<li>hypePostId (foreign key)</li>
 		</div>
 		<div>
 			<h2>Relations</h2>
