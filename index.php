@@ -6,6 +6,9 @@
 	<body>
 		<h1>Frontend</h1>
 		<div>
+			<img src="datadesignpic.jpg" alt="" height="600" width="500">
+		</div>
+		<div>
 			<h2>Persona: User</h2>
 			<ul>
 				<li>Name: Art Vandalay</li>
