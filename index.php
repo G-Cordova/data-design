@@ -25,5 +25,17 @@
 				<li>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive opinion that he would like to comment on the post because he is impressed by the quality and design.</li>
 			</ul>
 		</div>
+		<div>
+			<h1>Use Case/Interaction Flow</h1>
+			<ul>
+				<li>User sees a post that interests him and clicks on it.</li>
+				<li>Website directs the user to a different page that displays the full post along with various additional options on the page.</li>
+				<li>User clicks on a link labeled as  "Comment".</li>
+				<li>Website automatically scrolls down to a lower portion of the same current page, where other comments that other users have contributed to the same post.</li>
+				<li>User clicks on the provided field that is labeled "Join the discussion…" and proceeds to type in their comment that reads "fire", and finally clicks on "Post as disqus_7PaD4EZ1JM".</li>
+				<li>Website displays the submitted comment along with the previous comments. (Ordered from latest to oldest)</li>
+				<li>User proceeds to view other users' comments on the post.</li>
+			</ul>
+		</div>
 	</body>
 </html>
