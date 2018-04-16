@@ -24,20 +24,16 @@
 		</div>
 		<div>
 			<h2>User Story</h2>
-			<ul>
-				<li>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive opinion that he would like to comment on the post because he is impressed by the quality and design.</li>
-			</ul>
+			<p>Art has been browing posts on the the home page of the blog and sees an article that interests him. It is an article about a new pair of shoes that is being released. He has a positive interpretation that he would like to showcase on the post by contributing a "Hype" because he is impressed by the quality and design.</p>
 		</div>
 		<div>
 			<h2>Use Case/Interaction Flow</h2>
 			<ul>
 				<li>User sees a post that interests him and clicks on it.</li>
 				<li>Website directs the user to a different page that displays the full post along with various additional options on the page.</li>
-				<li>User clicks on a link labeled as  "Comment".</li>
-				<li>Website automatically scrolls down to a lower portion of the same current page, where other comments that other users have contributed to the same post.</li>
-				<li>User clicks on the provided field that is labeled "Join the discussion…" and proceeds to type in their comment that reads "fire", and finally clicks on "Post as disqus_7PaD4EZ1JM".</li>
-				<li>Website displays the submitted comment along with the previous comments. (Ordered from latest to oldest)</li>
-				<li>User proceeds to view other users' comments on the post.</li>
+				<li>User clicks on a link labeled as  "Hype".</li>
+				<li>Website adds 1 Hype to the total number of Hypes that were previously contributed by previous users.</li>
+				<li>User proceeds to read the post.</li>
 			</ul>
 		</div>
 	</body>
@@ -52,9 +48,7 @@
 					<li>User (strong)</li>
 					<li>Author (strong)</li>
 					<li>Post (weak)</li>
-					<li>Comment (weak)</li>
-					<li>Hype (wea)</li>
-					<li>Comment Reply (weak)</li>
+					<li>Hype (weak)</li>
 				</ol>
 			</div>
 		<div>
@@ -76,14 +70,6 @@
 				<li>postCategory</li>
 				<li>postContent</li>
 				<li>postID (primary key)</li>
-				<li>commentId (foreign key)</li>
-			</ul>
-			<h2>Comment (weak)</h2>
-			<ul>
-				<li>commentId (primary key)</li>
-				<li>commentTimeDate</li>
-				<li>userId (foreign key)</li>
-				<li>commentContent</li>
 			</ul>
 			<h2>Hype (weak)</h2>
 			<ul>
@@ -91,23 +77,13 @@
 				<li>postId (foreign key)</li>
 				<li>hypeId</li>
 				<li>hypeTime</li>
-			</ul>
-			<h2>Comment Reply (weak)</h2>
-			<ul>
-				<li>userId (foreign key)</li>
-				<li>commentReplyContext</li>
-				<li>commentReplyTime</li>
-			</ul>
 		</div>
 		<div>
 			<h2>Relations</h2>
 			<ul>
 				<li>Authors can have many posts.(m-n)</li>
-				<li>Users can have many comments.(m-n)</li>
 				<li>Users can have many hypes.(m-n)</li>
 				<li>Posts can have many hypes.(m-n)</li>
-				<li>Users can have many comment replies.(m-n)</li>
-				<li>Comments can have many comment replies.(m-n)</li>
 			</ul>
 		</div>
 </html>
