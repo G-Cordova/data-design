@@ -75,7 +75,7 @@
 				<li>postTime</li>
 				<li>postCategory</li>
 				<li>postContent</li>
-				<li>postID</li>
+				<li>postID (primary key)</li>
 				<li>commentId (foreign key)</li>
 			</ul>
 			<h2>Comment (weak)</h2>
@@ -88,6 +88,7 @@
 			<h2>Hype (weak)</h2>
 			<ul>
 				<li>userId (foreign key)</li>
+				<li>postId (foreign key)</li>
 				<li>hypeId</li>
 				<li>hypeTime</li>
 			</ul>
@@ -96,6 +97,17 @@
 				<li>userId (foreign key)</li>
 				<li>commentReplyContext</li>
 				<li>commentReplyTime</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Relations</h2>
+			<ul>
+				<li>Authors can have many posts.</li>
+				<li>Users can have many comments.</li>
+				<li>Users can have many hypes.</li>
+				<li>Posts can have many hypes.</li>
+				<li>Users can have many comment replies.</li>
+				<li>Comments can have many comment replies.</li>
 			</ul>
 		</div>
 </html>
