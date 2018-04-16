@@ -33,7 +33,6 @@
 				<li>Website directs the user to a different page that displays the full post along with various additional options on the page.</li>
 				<li>User clicks on a link labeled as  "Hype".</li>
 				<li>Website adds 1 Hype to the total number of Hypes that were previously contributed by previous users.</li>
-				<li>User proceeds to read the post.</li>
 			</ul>
 		</div>
 	</body>
@@ -58,7 +57,7 @@
 			<h2>Author (strong)</h2>
 			<ul>
 				<li>authorID (primary key)</li>
-				<li>authorProfile</li>
+				<li>authorName</li>
 			</ul>
 			<h2>Post (weak)</h2>
 			<ul>
@@ -72,17 +71,15 @@
 			<ul>
 				<li>userId (foreign key)</li>
 				<li>postId (foreign key)</li>
-				<li>hypeId</li>
-				<li>hypeTime</li>
 		</div>
 		<div>
 			<h2>Relations</h2>
 			<ul>
-				<li>Authors can have many posts.(m-n)</li>
-				<li>Users can have many hypes.(m-n)</li>
+				<li>An author can have many posts.(m-n)</li>
+				<li>Many users can Hype many posts.(m-n)</li>
 				<li>Posts can have many hypes.(m-n)</li>
 			</ul>
 		</div>
-		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36\&quot; version=\&quot;8.5.9\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;ba56e3b1-b9da-6339-4904-1a29a56de86a\&quot; name=\&quot;Page-1\&quot;&gt;1VdNb9swDP01BrZLYFu2k2ubdutlQIBg2HpUbcYWqliGrCTOfv3oSP6QlQBt0aVdDgH1JFLi45MIe2S5bb5LWhU/RAbcC/2s8cidF4bzRYL/LXDUQBTEGsglyzQUDMCa/QED+gbdsQxqa6ESgitW2WAqyhJSZWFUSnGwl20Et3etaA4OsE4pd9FfLFOFRhexP+APwPKi2znwzcwTTZ9zKXal2c8Lyeb009Nb2sUy6+uCZuIwgsi9R5ZSCKWtbbME3lLb0ab9vl2Y7c8toVQvcQi1w57ynUl9JWrlhQlH99sniVbeWl8OQJ9d2CShjh1xGB1rhIPbQ8EUrCuatjMHVAlihdpyHAVo0rrShduwBrI+1B6kguZiMkFPESoPxBaUPOIS40A6Vo3qwq4qh1ENDVSMytdh1Kgm7yMPzKFhyDtPJHGIfDhWcIHIr5+dyTiymQyS6zEZOUze7FQh5BkuayVFmX96NvvbfgX2Yoe9nzX8x9xF0fW4SxzuHC7wva5ac8OhuWkbDWYJZWbMu5TTumapTcuGcb4UHBXchuj6Afo1TP1GzJ8lZGHGj63PzO/HK5AM84DW1z/thTlpp1AvaoHHE+AvemDqpvOAzOl6kzJgrmInU7BuoqIyBzXqF26xRsWJzxSnwyRwqtjePsS5ipkdVoLh8YZ7NI/tV2k+Kbo+vPEad71JIBJOAoWTQDplJ9BJQH3aL9LU/MqaGvQRIFu2PgbAkdUgxYTYUowvKPFtkopdSZGPlFTkX2h0r5VUFE8CBf9MUosPklRgyyke62akGX82f1/NkE/2DEWx/XqEb9VM7E8CvZtmcDh8Q+jlw3cauf8L&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36\&quot; version=\&quot;8.5.9\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;ba56e3b1-b9da-6339-4904-1a29a56de86a\&quot; name=\&quot;Page-1\&quot;&gt;1VdNb9swDP01BrZLYFu2k2ubdutlQIBg2HpUbcYWqliGrCTOfv3oSP6QlQBd0aVtDgH1JFLi45MIe2S5bb5LWhU/RAbcC/2s8cidF4bzRYL/LXDUQBTEGsglyzQUDMCa/QED+gbdsQxqa6ESgitW2WAqyhJSZWFUSnGwl20Et3etaA4OsE4pd9FfLFOFRhexP+APwPKi2znwzcwTTZ9zKXal2c8Lyeb009Nb2sUy6+uCZuIwgsi9R5ZSCKWtbbME3lLb0ab9vl2Y7c8toVQvcQi1w57ynUl9JWrlhQlH99sniVbeWl9qJUWZf3VnTB7q2HGHG2CZcHB7KJiCdUXTduaAQkGsUFuOowBNWle6dhvWQNaH2oNU0FzMJ+hZQvGB2IKSR1xiHEhHrBFe2BXmMCqjgYpRBTuMGuHkfeSBPDQMf+e5JA6XD8cKznB5APr84ZmMI5vJILkek5HD5M1OFUJ+Xl32F/4K7MUOez9r+MTcRdH1uEsc7hwu8MmuWnPDoblpew1mCWVmzLuU07pmqU3LhnG+FBwV3IboWgL6NUz9RsyfJWRhxo+tz8zvxyuQDPOA1tc/7YU5aadQL2qBxxPgL3pg6qbzgMxpfJMyYK5iJ1OwbqKiMgc1ahlusUbFic8Up8MkcKrY3j7EuYqZHVaC4fGGezSP7VdpPim6PrzxGje+SSASTgKFk0A6ZSfQSUB92i/S1PzKmhr0ESBbtj4GwJHVIMWE2FKMLyjxdZKKXUmR95RU5F9odP8qqSieBAr+m6QW7ySpwJZTPNbNSDP+bP62miEf7BmKYvv1CF+rmdifBHozzeBw+IzQy4dPNXL/Fw==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
 		<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
 </html>
