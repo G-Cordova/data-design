@@ -40,6 +40,9 @@
 	</body>
 	<body>
 			<h1>Backend</h1>
+		<div>
+			<img src="erd.png" alt="">
+		</div>
 			<div>
 				<h2>Entities</h2>
 				<ol>
