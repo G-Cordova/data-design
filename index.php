@@ -39,9 +39,6 @@
 	</body>
 	<body>
 			<h1>Backend</h1>
-		<div>
-			<img src="erd.png" alt="">
-		</div>
 			<div>
 				<h2>Entities</h2>
 				<ol>
@@ -86,4 +83,6 @@
 				<li>Posts can have many hypes.(m-n)</li>
 			</ul>
 		</div>
+		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36\&quot; version=\&quot;8.5.9\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;ba56e3b1-b9da-6339-4904-1a29a56de86a\&quot; name=\&quot;Page-1\&quot;&gt;1VdNb9swDP01BrZLYFu2k2ubdutlQIBg2HpUbcYWqliGrCTOfv3oSP6QlQBt0aVdDgH1JFLi45MIe2S5bb5LWhU/RAbcC/2s8cidF4bzRYL/LXDUQBTEGsglyzQUDMCa/QED+gbdsQxqa6ESgitW2WAqyhJSZWFUSnGwl20Et3etaA4OsE4pd9FfLFOFRhexP+APwPKi2znwzcwTTZ9zKXal2c8Lyeb009Nb2sUy6+uCZuIwgsi9R5ZSCKWtbbME3lLb0ab9vl2Y7c8toVQvcQi1w57ynUl9JWrlhQlH99sniVbeWl8OQJ9d2CShjh1xGB1rhIPbQ8EUrCuatjMHVAlihdpyHAVo0rrShduwBrI+1B6kguZiMkFPESoPxBaUPOIS40A6Vo3qwq4qh1ENDVSMytdh1Kgm7yMPzKFhyDtPJHGIfDhWcIHIr5+dyTiymQyS6zEZOUze7FQh5BkuayVFmX96NvvbfgX2Yoe9nzX8x9xF0fW4SxzuHC7wva5ac8OhuWkbDWYJZWbMu5TTumapTcuGcb4UHBXchuj6Afo1TP1GzJ8lZGHGj63PzO/HK5AM84DW1z/thTlpp1AvaoHHE+AvemDqpvOAzOl6kzJgrmInU7BuoqIyBzXqF26xRsWJzxSnwyRwqtjePsS5ipkdVoLh8YZ7NI/tV2k+Kbo+vPEad71JIBJOAoWTQDplJ9BJQH3aL9LU/MqaGvQRIFu2PgbAkdUgxYTYUowvKPFtkopdSZGPlFTkX2h0r5VUFE8CBf9MUosPklRgyyke62akGX82f1/NkE/2DEWx/XqEb9VM7E8CvZtmcDh8Q+jlw3cauf8L&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+		<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
 </html>
