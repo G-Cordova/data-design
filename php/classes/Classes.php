@@ -12,8 +12,9 @@
 
 class user {
 	/**
+	 *UNIQUE
 	 * id for user, primary key
-	 * @var uuid $userId
+	 * @var UUID $userId
 	 */
 	protected $userId;
 	/**
@@ -25,13 +26,13 @@ class user {
 	 *accessor method for User Id
 	 * @return $userId (uuid)
 	 */
-	public function getUserId(): uuid {
+	public function getUserId(): UUID {
 		return $this->userId;
 	}
 	/**mutator method for User Id
 	 * @param uuid $userId
 	 */
-	public function setUserId(uuid $userId) : void {
+	public function setUserId(UUID $userId) : void {
 		$this->userId = $userId;
 	}
 
@@ -50,8 +51,13 @@ class user {
 		$this->userActivationCode = $userActivationCode;
 	}
 
+	/**
+	 * UNIQUE email that is related to user
+	 * @var string
+	 */
 	protected $userEmail;
 	/**
+	 * UNIQUE
 	 * accessor method for User Email
 	 * @return string
 	 */
@@ -84,6 +90,7 @@ class user {
 
 	public $userName;
 	/**
+	 * UNIQUE
 	 * accessor method for User Name
 	 * @return string
 	 */
@@ -91,18 +98,14 @@ class user {
 		return $this->userName;
 	}
 	/**
+	 *
 	 * mutator method for User Name
 	 * @param string $userName
 	 */
 	public function setUserName($userName) {
 		$this->userName = $userName;
 	}
-	/**
-	 * UNIQUE email that is related to user
-	 * @var string
-	 */
 }
-
 
 
 ?>
