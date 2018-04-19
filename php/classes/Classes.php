@@ -10,6 +10,10 @@
  * @version 1.0.
 **/
 
+
+/*
+ * STRONG ENTITY
+ */
 class user {
 	/**
 	 *UNIQUE
@@ -23,14 +27,29 @@ class user {
 	 */
 	protected $userActivationCode;
 	/**
+	 * UNIQUE email that is related to user
+	 * @var string
+	 */
+	protected $userEmail;
+	/**
+	 * UNIQUE userName that identifies user.
+	 * @var string
+	 */
+	protected $userName;
+/*
+ * User's password
+ */
+	protected $userHash;
+
+
+	/**
 	 *accessor method for User Id
 	 * @return $userId (uuid)
-	 */
-	public function getUserId(): UUID {
+	 */public function getUserId(): UUID {
 		return $this->userId;
 	}
 	/**mutator method for User Id
-	 * @param uuid $userId
+	 * @param UUID $userId
 	 */
 	public function setUserId(UUID $userId) : void {
 		$this->userId = $userId;
@@ -52,11 +71,6 @@ class user {
 	}
 
 	/**
-	 * UNIQUE email that is related to user
-	 * @var string
-	 */
-	protected $userEmail;
-	/**
 	 * UNIQUE
 	 * accessor method for User Email
 	 * @return string
@@ -72,7 +86,6 @@ class user {
 		$this->userEmail = $userEmail;
 	}
 
-	protected $userHash;
 	/**
 	 * accessor method for User Hash (pw)
 	 * @return mixed
@@ -88,7 +101,6 @@ class user {
 		$this->userHash = $userHash;
 	}
 
-	public $userName;
 	/**
 	 * UNIQUE
 	 * accessor method for User Name
