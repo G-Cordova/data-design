@@ -14,11 +14,12 @@
 /*
  * STRONG ENTITY
  */
+
 class user {
 	/**
 	 *UNIQUE
 	 * id for user, primary key
-	 * @var UUID $userId
+	 * @var Uuid $userId
 	 */
 	protected $userId;
 	/**
@@ -28,12 +29,12 @@ class user {
 	protected $userActivationCode;
 	/**
 	 * UNIQUE email that is related to user
-	 * @var string
+	 * @var string $userEmail
 	 */
 	protected $userEmail;
 	/**
 	 * UNIQUE userName that identifies user.
-	 * @var string
+	 * @var 	string
 	 */
 	protected $userName;
 /*
@@ -45,13 +46,13 @@ class user {
 	/**
 	 *accessor method for User Id
 	 * @return $userId (uuid)
-	 */public function getUserId(): UUID {
+	 */public function getUserId(): Uuid {
 		return $this->userId;
 	}
 	/**mutator method for User Id
-	 * @param UUID $userId
+	 * @param Uuid $userId
 	 */
-	public function setUserId(UUID $userId) : void {
+	public function setUserId(Uuid $userId) : void {
 		$this->userId = $userId;
 	}
 
