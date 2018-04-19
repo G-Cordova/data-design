@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Small Cross Section of a Twitter like Message
+ * Small Cross Section of a hypebeast.com User
  *
  * This User can be considered a small example of a registered user on hypebeast.com
- * received using Twitter. This can easily be extended to emulate more features of Twitter.
+ *This can easily be extended to emulate more features of hypebeast.com.
  *
  * @author G. Cordova <gcordova25@cnm.edu>
- * @version 3.0.0
+ * @version 1.0.
 **/
 
 class user {
@@ -35,58 +35,64 @@ class user {
 		$this->userId = $userId;
 	}
 
-	/**
+	public function getUserActivationCode(): string {
+		/**
 	 * accessor method for User Activation Code
 	 * @return string
 	 */
-	public function getUserActivationCode(): string {
 		return $this->userActivationCode;
 	}
-
 	/**
+	 * mutator method for setting User Activation Code
 	 * @param string $userActivationCode
 	 */
 	public function setUserActivationCode(string $userActivationCode) {
 		$this->userActivationCode = $userActivationCode;
 	}
 
+	protected $userEmail;
 	/**
+	 * accessor method for User Email
 	 * @return string
 	 */
 	public function getUserEmail(): string {
 		return $this->userEmail;
 	}
-
 	/**
+	 * mutator method for User Email
 	 * @param string $userEmail
 	 */
 	public function setUserEmail(string $userEmail) {
 		$this->userEmail = $userEmail;
 	}
 
+	protected $userHash;
 	/**
+	 * accessor method for User Hash (pw)
 	 * @return mixed
 	 */
 	public function getUserHash() {
 		return $this->userHash;
 	}
-
 	/**
+	 * mutator method for User Hash (pw)
 	 * @param mixed $userHash
 	 */
 	public function setUserHash($userHash) {
 		$this->userHash = $userHash;
 	}
 
+	public $userName;
 	/**
-	 * @return mixed
+	 * accessor method for User Name
+	 * @return string
 	 */
 	public function getUserName() {
 		return $this->userName;
 	}
-
 	/**
-	 * @param mixed $userName
+	 * mutator method for User Name
+	 * @param string $userName
 	 */
 	public function setUserName($userName) {
 		$this->userName = $userName;
@@ -95,14 +101,8 @@ class user {
 	 * UNIQUE email that is related to user
 	 * @var string
 	 */
-	protected $userEmail;
-	protected $userHash;
-	public $userName;
 }
 
-protected class user (
-	protected String $getuserId() {
-		return userId;
-}
-)
+
+
 ?>
