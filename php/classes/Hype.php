@@ -19,6 +19,8 @@ class user {
 		return $this->userId;
 	}
 
+
+
 	/**
 	 * mutator method for user id
 	 * @param  $userId
