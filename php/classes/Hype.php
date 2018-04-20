@@ -5,11 +5,46 @@
  */
 class user {
 
+	/**
+	 * Uuid|string of user id
+	 *primary key
+	 *STRONG ENTITY
+	 * UNIQUE
+	 *
+	 * @var Uuid $userId
+	 */
 	protected $userId;
+
+	/**
+	 * string of user activation code
+	 *
+	 * @var $userActivationCode
+	 */
 	protected $userActivationCode;
+
+
+	/**
+	 * string of user email
+	 * UNIQUE
+	 *
+	 * @var $userEmail
+	 */
 	protected $userEmail;
+
+	/**
+	 *string of user name
+	 *
+	 * @var $userName
+	 */
 	protected $userName;
-	protected $userHash;
+
+	/**
+	 * mixed of user hash (pw)
+	 *
+	 * @var $userHash
+	 */
+	private $userHash;
+
 
 	/**
 	 *accesser method for user id
@@ -23,7 +58,9 @@ class user {
 
 	/**
 	 * mutator method for user id
-	 * @param  $userId
+	 * @param  Uuid|string $newUserId new vallue of user id
+	 * @throws /range exception if $newUserId is not positive
+	 * @throws /typeerror if $newUserId is not an integer
 	 */
 	public function setUserId(string $newUserId) : string {
 		$this->userId = $userId;
@@ -31,7 +68,7 @@ class user {
 
 	/**
 	 * accessor method for activation code
-	 * @return mixed
+	 * @return string of activation code
 	 */
 	public function getUserActivationCode() {
 		return $this->userActivationCode;
@@ -47,7 +84,7 @@ class user {
 
 	/**
 	 * accessor method for user email
-	 * @return mixed
+	 * @return string for user email
 	 */
 	public function getUserEmail() {
 		return $this->userEmail;
@@ -63,7 +100,7 @@ class user {
 
 	/**
 	 * accessor method for user name
-	 * @return mixed
+	 * @return string of user name
 	 */
 	public function getUserName() {
 		return $this->userName;
@@ -79,7 +116,7 @@ class user {
 
 	/**
 	 * accessor method for user hash (pw)
-	 * @return mixed
+	 * @return mixed of user hash (pw)
 	 */
 	public function getUserHash() {
 		return $this->userHash;
