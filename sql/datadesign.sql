@@ -39,7 +39,7 @@ CREATE TABLE hype (
 	FOREIGN KEY(hypePostId) REFERENCES post(postId),
 	FOREIGN KEY(hypeUserId) REFERENCES user(userId),
 	INDEX(hypeUserId),
-	INDEX (hypePostId),
+	INDEX(hypePostId),
 	PRIMARY KEY(hypeUserId, hypePostId)
 );
 
