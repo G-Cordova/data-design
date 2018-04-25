@@ -1,12 +1,14 @@
 insert into post (postId, postAuthorId, postContent, postDateTime)
+values (postId, postAuthorId, postContent, postDateTime)
 
 insert into hype (hypeUserId, hypePostId)
-
-insert into user (userId, userActivation code, userEmail, userHash, userName)
-
-insert into author (authorId, authorName)
+values (hypeUserId, hypePostId)
 
 delete post from post
 
 delete user from user
+
+update post from UNHEX(REPLACE("01ceecf9-d01b-4af2-b5dcf1235891044f", "-", "")) where postContent
+
+update post from UNHEX(REPLACE("01ceecf9-d01b-4af2-b5dcf1235891044f", "-", "")) where postDateTime
 
