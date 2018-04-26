@@ -9,7 +9,9 @@ insert into user (userId, userActivationCode, userEmail, userHash, userName)
 values ((UNHEX(REPLACE('1ce42967-ce21-4e84-ac86-4e4610f8a551','-',''))), '12345', 'exampleemail123@gmail.com', 'yadayada123', 'g471');
 
 insert into hype (hypeUserId, hypePostId)
-values(UNHEX(REPLACE('2852f269-cb31-4bfe-887d-ababb6f6bb5c','-','')), UNHEX(REPLACE('42bbd359-8508-4183-968f-8d9b9c252d66','-','')));
+values(UNHEX(REPLACE('b893a16d-0ae3-46ed-9071-06fb78f20b53','-','')), UNHEX(REPLACE('9defe769-4b42-4a1c-a3bc-15a6b1e2cfc6','-','')));
+
+
 
 DELETE post from post
 
@@ -20,3 +22,7 @@ update post from UNHEX(REPLACE("01ceecf9-d01b-4af2-b5dcf1235891044f", "-", "")) 
 update post from UNHEX(REPLACE("01ceecf9-d01b-4af2-b5dcf1235891044f", "-", "")) where postDateTime
 
 select (postContent, postDateTime)
+
+
+
+delete endUser from endUser where endUser.endUser.

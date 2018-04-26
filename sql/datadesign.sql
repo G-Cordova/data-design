@@ -1,19 +1,22 @@
 ALTER DATABASE gcordova25 CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+
+DROP TABLE IF EXISTS endUser;
+
 DROP TABLE IF EXISTS hype;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS author;
-DROP TABLE IF EXISTS endUser;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE endUser (
-endUserId BINARY(16) NOT NULL,
-endUserActivationCode CHAR(32),
-endUserEmail VARCHAR(128) NOT NULL,
-endUserHash CHAR(97) NOT NULL,
-endUserName VARCHAR(16) NOT NULL,
-UNIQUE(endUserName),
-UNIQUE(endUserEmail),
-PRIMARY KEY(endUserId)
+UserId BINARY(16) NOT NULL,
+UserActivationCode CHAR(32),
+UserEmail VARCHAR(128) NOT NULL,
+UserHash CHAR(97) NOT NULL,
+UserName VARCHAR(16) NOT NULL,
+UNIQUE(UserName),
+UNIQUE(UserEmail),
+PRIMARY KEY(UserId)
 );
 
 CREATE TABLE author (
@@ -39,7 +42,8 @@ CREATE TABLE hype (
 	INDEX(hypeUserId),
 	INDEX(hypePostId),
 	FOREIGN KEY(hypePostId) REFERENCES post(postId),
-	FOREIGN KEY(hypeUserId) REFERENCES endUser(endUserId),
+	FOREIGN KEY(hypeUserId) REFERENCES user(UserId),
 	PRIMARY KEY(hypeUserId, hypePostId)
 );
+
 
