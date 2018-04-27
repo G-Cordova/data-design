@@ -5,12 +5,12 @@ DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS author;
 DROP TABLE IF EXISTS user;
 
-CREATE TABLE endUser (
-UserId BINARY(16) NOT NULL,
-UserActivationCode CHAR(32),
-UserEmail VARCHAR(128) NOT NULL,
-UserHash CHAR(97) NOT NULL,
-UserName VARCHAR(16) NOT NULL,
+CREATE TABLE user (
+userId BINARY(16) NOT NULL,
+userActivationCode CHAR(32),
+userEmail VARCHAR(128) NOT NULL,
+userHash CHAR(97) NOT NULL,
+userName VARCHAR(16) NOT NULL,
 UNIQUE(UserName),
 UNIQUE(UserEmail),
 PRIMARY KEY(UserId)

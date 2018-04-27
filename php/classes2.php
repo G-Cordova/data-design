@@ -148,6 +148,26 @@ class author {
 	private $authorName;
 
 	/**
+	 * constructor for this authoi
+	 * @param string|Uuid $newAuthorId id of this Author
+	 * @param string $newAuthorName of this author
+	 * @param \DateTime|string|null $newTweetDate date and time Tweet was sent or null if set to current date and time
+	 * @throws \InvalidArgumentException if data types are not valid
+	 * @throws \RangeException if data values are out of bounds (e.g., strings too long, negative integers)
+	 * @throws \TypeError if data types violate type hints
+	 * @throws \Exception if some other exception occurs
+	 */
+	public function __construct($newAuthorId, $newAuthorName = null) {
+		try {
+			$this->setAuthorId($newAuthorId);
+			$this->setAuthorName($newAuthorName);
+		} catch(/InvalidArgumentException | /RangeException | /Exception | /TypeError $exception) {
+			$exceptionType = get_class($exception);
+			throw(new $exceptionType($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/**
 	 * accessor method for author id
 	 * @return Uuid value of $newAuthorId
 	 */
@@ -195,4 +215,88 @@ class author {
 	}
 }
 
+class user {
+	private $userId;
 
+	private $userActivationCode;
+
+	private $userEmail;
+
+	private $userHash;
+
+	private $userName;
+
+	/**
+	 * accessor method for user id
+	 * @return Uuid value of user id
+	 */
+	public function getUserId() {
+		return $this->userId;
+	}
+
+	/**
+	 * mutator method of
+	 * @param mixed $userId
+	 */
+	public function setUserId($userId) {
+		$this->userId = $userId;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getUserActivationCode() {
+		return $this->userActivationCode;
+	}
+
+	/**
+	 * @param mixed $userActivationCode
+	 */
+	public function setUserActivationCode($userActivationCode) {
+		$this->userActivationCode = $userActivationCode;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getUserEmail() {
+		return $this->userEmail;
+	}
+
+	/**
+	 * @param mixed $userEmail
+	 */
+	public function setUserEmail($userEmail) {
+		$this->userEmail = $userEmail;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getUserHash() {
+		return $this->userHash;
+	}
+
+	/**
+	 * @param mixed $userHash
+	 */
+	public function setUserHash($userHash) {
+		$this->userHash = $userHash;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getUserName() {
+		return $this->userName;
+	}
+
+	/**
+	 * @param mixed $userName
+	 */
+	public function setUserName($userName) {
+		$this->userName = $userName;
+	}
+
+
+}
