@@ -237,31 +237,31 @@ class Tweet implements \JsonSerializable {
 	use ValidateUuid;
 	/**
 	 * id for this Tweet; this is the primary key
-	 * @var Uuid $tweetId
+	 * @var Uuid $postId
 	 **/
-	private $tweetId;
+	private $postId;
 	/**
 	 * id of the Profile that sent this Tweet; this is a foreign key
-	 * @var Uuid $tweetProfileId
+	 * @var Uuid $postProfileId
 	 **/
-	private $tweetProfileId;
+	private $postProfileId;
 	/**
 	 * actual textual content of this Tweet
-	 * @var string $tweetContent
+	 * @var string $postContent
 	 **/
-	private $tweetContent;
+	private $postContent;
 	/**
 	 * date and time this Tweet was sent, in a PHP DateTime object
-	 * @var \DateTime $tweetDate
+	 * @var \DateTime $postDate
 	 **/
-	private $tweetDate;
+	private $postDate;
 
 	/**
 	 * constructor for this Tweet
 	 *
 	 * @param string|Uuid $newTweetId id of this Tweet or null if a new Tweet
 	 * @param string|Uuid $newTweetProfileId id of the Profile that sent this Tweet
-	 * @param string $newTweetContent string containing actual tweet data
+	 * @param string $newTweetContent string containing actual post data
 	 * @param \DateTime|string|null $newTweetDate date and time Tweet was sent or null if set to current date and time
 	 * @throws \InvalidArgumentException if data types are not valid
 	 * @throws \RangeException if data values are out of bounds (e.g., strings too long, negative integers)
@@ -284,18 +284,18 @@ class Tweet implements \JsonSerializable {
 	}
 
 	/**
-	 * accessor method for tweet id
+	 * accessor method for post id
 	 *
-	 * @return Uuid value of tweet id
+	 * @return Uuid value of post id
 	 **/
 	public function getTweetId() : Uuid {
-		return($this->tweetId);
+		return($this->postId);
 	}
 
 	/**
-	 * mutator method for tweet id
+	 * mutator method for post id
 	 *
-	 * @param Uuid|string $newTweetId new value of tweet id
+	 * @param Uuid|string $newTweetId new value of post id
 	 * @throws \RangeException if $newTweetId is not positive
 	 * @throws \TypeError if $newTweetId is not a uuid or string
 	 **/
@@ -307,23 +307,23 @@ class Tweet implements \JsonSerializable {
 			throw(new $exceptionType($exception->getMessage(), 0, $exception));
 		}
 
-		// convert and store the tweet id
-		$this->tweetId = $uuid;
+		// convert and store the post id
+		$this->postId = $uuid;
 	}
 
 	/**
-	 * accessor method for tweet profile id
+	 * accessor method for post profile id
 	 *
-	 * @return Uuid value of tweet profile id
+	 * @return Uuid value of post profile id
 	 **/
 	public function getTweetProfileId() : Uuid{
-		return($this->tweetProfileId);
+		return($this->postProfileId);
 	}
 
 	/**
-	 * mutator method for tweet profile id
+	 * mutator method for post profile id
 	 *
-	 * @param string | Uuid $newTweetProfileId new value of tweet profile id
+	 * @param string | Uuid $newTweetProfileId new value of post profile id
 	 * @throws \RangeException if $newProfileId is not positive
 	 * @throws \TypeError if $newTweetProfileId is not an integer
 	 **/
@@ -336,63 +336,63 @@ class Tweet implements \JsonSerializable {
 		}
 
 		// convert and store the profile id
-		$this->tweetProfileId = $uuid;
+		$this->postProfileId = $uuid;
 	}
 
 	/**
-	 * accessor method for tweet content
+	 * accessor method for post content
 	 *
-	 * @return string value of tweet content
+	 * @return string value of post content
 	 **/
 	public function getTweetContent() : string {
-		return($this->tweetContent);
+		return($this->postContent);
 	}
 
 	/**
-	 * mutator method for tweet content
+	 * mutator method for post content
 	 *
-	 * @param string $newTweetContent new value of tweet content
+	 * @param string $newTweetContent new value of post content
 	 * @throws \InvalidArgumentException if $newTweetContent is not a string or insecure
 	 * @throws \RangeException if $newTweetContent is > 140 characters
 	 * @throws \TypeError if $newTweetContent is not a string
 	 **/
 	public function setTweetContent(string $newTweetContent) : void {
-		// verify the tweet content is secure
+		// verify the post content is secure
 		$newTweetContent = trim($newTweetContent);
 		$newTweetContent = filter_var($newTweetContent, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 		if(empty($newTweetContent) === true) {
-			throw(new \InvalidArgumentException("tweet content is empty or insecure"));
+			throw(new \InvalidArgumentException("post content is empty or insecure"));
 		}
 
-		// verify the tweet content will fit in the database
+		// verify the post content will fit in the database
 		if(strlen($newTweetContent) > 140) {
-			throw(new \RangeException("tweet content too large"));
+			throw(new \RangeException("post content too large"));
 		}
 
-		// store the tweet content
-		$this->tweetContent = $newTweetContent;
+		// store the post content
+		$this->postContent = $newTweetContent;
 	}
 
 	/**
-	 * accessor method for tweet date
+	 * accessor method for post date
 	 *
-	 * @return \DateTime value of tweet date
+	 * @return \DateTime value of post date
 	 **/
 	public function getTweetDate() : \DateTime {
-		return($this->tweetDate);
+		return($this->postDate);
 	}
 
 	/**
-	 * mutator method for tweet date
+	 * mutator method for post date
 	 *
-	 * @param \DateTime|string|null $newTweetDate tweet date as a DateTime object or string (or null to load the current time)
+	 * @param \DateTime|string|null $newTweetDate post date as a DateTime object or string (or null to load the current time)
 	 * @throws \InvalidArgumentException if $newTweetDate is not a valid object or string
 	 * @throws \RangeException if $newTweetDate is a date that does not exist
 	 **/
 	public function setTweetDate($newTweetDate = null) : void {
 		// base case: if the date is null, use the current date and time
 		if($newTweetDate === null) {
-			$this->tweetDate = new \DateTime();
+			$this->postDate = new \DateTime();
 			return;
 		}
 
@@ -403,7 +403,7 @@ class Tweet implements \JsonSerializable {
 			$exceptionType = get_class($exception);
 			throw(new $exceptionType($exception->getMessage(), 0, $exception));
 		}
-		$this->tweetDate = $newTweetDate;
+		$this->postDate = $newTweetDate;
 	}
 
 	/**
@@ -416,12 +416,12 @@ class Tweet implements \JsonSerializable {
 	public function insert(\PDO $pdo) : void {
 
 		// create query template
-		$query = "INSERT INTO tweet(tweetId,tweetProfileId, tweetContent, tweetDate) VALUES(:tweetId, :tweetProfileId, :tweetContent, :tweetDate)";
+		$query = "INSERT INTO post(postId,postProfileId, postContent, postDate) VALUES(:postId, :postProfileId, :postContent, :postDate)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		$formattedDate = $this->tweetDate->format("Y-m-d H:i:s.u");
-		$parameters = ["tweetId" => $this->tweetId->getBytes(), "tweetProfileId" => $this->tweetProfileId->getBytes(), "tweetContent" => $this->tweetContent, "tweetDate" => $formattedDate];
+		$formattedDate = $this->postDate->format("Y-m-d H:i:s.u");
+		$parameters = ["postId" => $this->postId->getBytes(), "postProfileId" => $this->postProfileId->getBytes(), "postContent" => $this->postContent, "postDate" => $formattedDate];
 		$statement->execute($parameters);
 	}
 
@@ -436,11 +436,11 @@ class Tweet implements \JsonSerializable {
 	public function delete(\PDO $pdo) : void {
 
 		// create query template
-		$query = "DELETE FROM tweet WHERE tweetId = :tweetId";
+		$query = "DELETE FROM post WHERE postId = :postId";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holder in the template
-		$parameters = ["tweetId" => $this->tweetId->getBytes()];
+		$parameters = ["postId" => $this->postId->getBytes()];
 		$statement->execute($parameters);
 	}
 
@@ -454,137 +454,137 @@ class Tweet implements \JsonSerializable {
 	public function update(\PDO $pdo) : void {
 
 		// create query template
-		$query = "UPDATE tweet SET tweetProfileId = :tweetProfileId, tweetContent = :tweetContent, tweetDate = :tweetDate WHERE tweetId = :tweetId";
+		$query = "UPDATE post SET postProfileId = :postProfileId, postContent = :postContent, postDate = :postDate WHERE postId = :postId";
 		$statement = $pdo->prepare($query);
 
 
-		$formattedDate = $this->tweetDate->format("Y-m-d H:i:s.u");
-		$parameters = ["tweetId" => $this->tweetId->getBytes(),"tweetProfileId" => $this->tweetProfileId->getBytes(), "tweetContent" => $this->tweetContent, "tweetDate" => $formattedDate];
+		$formattedDate = $this->postDate->format("Y-m-d H:i:s.u");
+		$parameters = ["postId" => $this->postId->getBytes(),"postProfileId" => $this->postProfileId->getBytes(), "postContent" => $this->postContent, "postDate" => $formattedDate];
 		$statement->execute($parameters);
 	}
 
 	/**
-	 * gets the Tweet by tweetId
+	 * gets the Tweet by postId
 	 *
 	 * @param \PDO $pdo PDO connection object
-	 * @param Uuid|string $tweetId tweet id to search for
+	 * @param Uuid|string $postId post id to search for
 	 * @return Tweet|null Tweet found or null if not found
 	 * @throws \PDOException when mySQL related errors occur
 	 * @throws \TypeError when a variable are not the correct data type
 	 **/
-	public static function getTweetByTweetId(\PDO $pdo, $tweetId) : ?Tweet {
-		// sanitize the tweetId before searching
+	public static function getTweetByTweetId(\PDO $pdo, $postId) : ?Tweet {
+		// sanitize the postId before searching
 		try {
-			$tweetId = self::validateUuid($tweetId);
+			$postId = self::validateUuid($postId);
 		} catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
 		}
 
 		// create query template
-		$query = "SELECT tweetId, tweetProfileId, tweetContent, tweetDate FROM tweet WHERE tweetId = :tweetId";
+		$query = "SELECT postId, postProfileId, postContent, postDate FROM post WHERE postId = :postId";
 		$statement = $pdo->prepare($query);
 
-		// bind the tweet id to the place holder in the template
-		$parameters = ["tweetId" => $tweetId->getBytes()];
+		// bind the post id to the place holder in the template
+		$parameters = ["postId" => $postId->getBytes()];
 		$statement->execute($parameters);
 
-		// grab the tweet from mySQL
+		// grab the post from mySQL
 		try {
-			$tweet = null;
+			$post = null;
 			$statement->setFetchMode(\PDO::FETCH_ASSOC);
 			$row = $statement->fetch();
 			if($row !== false) {
-				$tweet = new Tweet($row["tweetId"], $row["tweetProfileId"], $row["tweetContent"], $row["tweetDate"]);
+				$post = new Tweet($row["postId"], $row["postProfileId"], $row["postContent"], $row["postDate"]);
 			}
 		} catch(\Exception $exception) {
 			// if the row couldn't be converted, rethrow it
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
 		}
-		return($tweet);
+		return($post);
 	}
 
 	/**
 	 * gets the Tweet by profile id
 	 *
 	 * @param \PDO $pdo PDO connection object
-	 * @param Uuid|string $tweetProfileId profile id to search by
+	 * @param Uuid|string $postProfileId profile id to search by
 	 * @return \SplFixedArray SplFixedArray of Tweets found
 	 * @throws \PDOException when mySQL related errors occur
 	 * @throws \TypeError when variables are not the correct data type
 	 **/
-	public static function getTweetByTweetProfileId(\PDO $pdo, $tweetProfileId) : \SplFixedArray {
+	public static function getTweetByTweetProfileId(\PDO $pdo, $postProfileId) : \SplFixedArray {
 
 	try {
-		$tweetProfileId = self::validateUuid($tweetProfileId);
+		$postProfileId = self::validateUuid($postProfileId);
 	} catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
 		throw(new \PDOException($exception->getMessage(), 0, $exception));
 	}
 
 	// create query template
-	$query = "SELECT tweetId, tweetProfileId, tweetContent, tweetDate FROM tweet WHERE tweetProfileId = :tweetProfileId";
+	$query = "SELECT postId, postProfileId, postContent, postDate FROM post WHERE postProfileId = :postProfileId";
 	$statement = $pdo->prepare($query);
-	// bind the tweet profile id to the place holder in the template
-	$parameters = ["tweetProfileId" => $tweetProfileId->getBytes()];
+	// bind the post profile id to the place holder in the template
+	$parameters = ["postProfileId" => $postProfileId->getBytes()];
 	$statement->execute($parameters);
-	// build an array of tweets
-	$tweets = new \SplFixedArray($statement->rowCount());
+	// build an array of posts
+	$posts = new \SplFixedArray($statement->rowCount());
 	$statement->setFetchMode(\PDO::FETCH_ASSOC);
 	while(($row = $statement->fetch()) !== false) {
 		try {
-			$tweet = new Tweet($row["tweetId"], $row["tweetProfileId"], $row["tweetContent"], $row["tweetDate"]);
-			$tweets[$tweets->key()] = $tweet;
-			$tweets->next();
+			$post = new Tweet($row["postId"], $row["postProfileId"], $row["postContent"], $row["postDate"]);
+			$posts[$posts->key()] = $post;
+			$posts->next();
 		} catch(\Exception $exception) {
 			// if the row couldn't be converted, rethrow it
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
 		}
 	}
-	return($tweets);
+	return($posts);
 }
 
 	/**
 	 * gets the Tweet by content
 	 *
 	 * @param \PDO $pdo PDO connection object
-	 * @param string $tweetContent tweet content to search for
+	 * @param string $postContent post content to search for
 	 * @return \SplFixedArray SplFixedArray of Tweets found
 	 * @throws \PDOException when mySQL related errors occur
 	 * @throws \TypeError when variables are not the correct data type
 	 **/
-	public static function getTweetByTweetContent(\PDO $pdo, string $tweetContent) : \SplFixedArray {
+	public static function getTweetByTweetContent(\PDO $pdo, string $postContent) : \SplFixedArray {
 	// sanitize the description before searching
-	$tweetContent = trim($tweetContent);
-	$tweetContent = filter_var($tweetContent, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
-	if(empty($tweetContent) === true) {
-		throw(new \PDOException("tweet content is invalid"));
+	$postContent = trim($postContent);
+	$postContent = filter_var($postContent, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	if(empty($postContent) === true) {
+		throw(new \PDOException("post content is invalid"));
 	}
 
 	// escape any mySQL wild cards
-	$tweetContent = str_replace("_", "\\_", str_replace("%", "\\%", $tweetContent));
+	$postContent = str_replace("_", "\\_", str_replace("%", "\\%", $postContent));
 
 	// create query template
-	$query = "SELECT tweetId, tweetProfileId, tweetContent, tweetDate FROM tweet WHERE tweetContent LIKE :tweetContent";
+	$query = "SELECT postId, postProfileId, postContent, postDate FROM post WHERE postContent LIKE :postContent";
 	$statement = $pdo->prepare($query);
 
-	// bind the tweet content to the place holder in the template
-	$tweetContent = "%$tweetContent%";
-	$parameters = ["tweetContent" => $tweetContent];
+	// bind the post content to the place holder in the template
+	$postContent = "%$postContent%";
+	$parameters = ["postContent" => $postContent];
 	$statement->execute($parameters);
 
-	// build an array of tweets
-	$tweets = new \SplFixedArray($statement->rowCount());
+	// build an array of posts
+	$posts = new \SplFixedArray($statement->rowCount());
 	$statement->setFetchMode(\PDO::FETCH_ASSOC);
 	while(($row = $statement->fetch()) !== false) {
 		try {
-			$tweet = new Tweet($row["tweetId"], $row["tweetProfileId"], $row["tweetContent"], $row["tweetDate"]);
-			$tweets[$tweets->key()] = $tweet;
-			$tweets->next();
+			$post = new Tweet($row["postId"], $row["postProfileId"], $row["postContent"], $row["postDate"]);
+			$posts[$posts->key()] = $post;
+			$posts->next();
 		} catch(\Exception $exception) {
 			// if the row couldn't be converted, rethrow it
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
 		}
 	}
-	return($tweets);
+	return($posts);
 }
 
 	/**
@@ -597,24 +597,24 @@ class Tweet implements \JsonSerializable {
 	 **/
 	public static function getAllTweets(\PDO $pdo) : \SPLFixedArray {
 	// create query template
-	$query = "SELECT tweetId, tweetProfileId, tweetContent, tweetDate FROM tweet";
+	$query = "SELECT postId, postProfileId, postContent, postDate FROM post";
 	$statement = $pdo->prepare($query);
 	$statement->execute();
 
-	// build an array of tweets
-	$tweets = new \SplFixedArray($statement->rowCount());
+	// build an array of posts
+	$posts = new \SplFixedArray($statement->rowCount());
 	$statement->setFetchMode(\PDO::FETCH_ASSOC);
 	while(($row = $statement->fetch()) !== false) {
 		try {
-			$tweet = new Tweet($row["tweetId"], $row["tweetProfileId"], $row["tweetContent"], $row["tweetDate"]);
-			$tweets[$tweets->key()] = $tweet;
-			$tweets->next();
+			$post = new Tweet($row["postId"], $row["postProfileId"], $row["postContent"], $row["postDate"]);
+			$posts[$posts->key()] = $post;
+			$posts->next();
 		} catch(\Exception $exception) {
 			// if the row couldn't be converted, rethrow it
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
 		}
 	}
-	return ($tweets);
+	return ($posts);
 }
 
 	/**
@@ -625,11 +625,11 @@ class Tweet implements \JsonSerializable {
 	public function jsonSerialize() : array {
 	$fields = get_object_vars($this);
 
-	$fields["tweetId"] = $this->tweetId->toString();
-	$fields["tweetProfileId"] = $this->tweetProfileId->toString();
+	$fields["postId"] = $this->postId->toString();
+	$fields["postProfileId"] = $this->postProfileId->toString();
 
 	//format the date so that the front end can consume it
-	$fields["tweetDate"] = round(floatval($this->tweetDate->format("U.u")) * 1000);
+	$fields["postDate"] = round(floatval($this->postDate->format("U.u")) * 1000);
 	return($fields);
 }
 
@@ -824,7 +824,7 @@ $newPostDate = self::validateDateTime($newPostDateTime);
 
 public static function getPostByPostId(\PDO $pdo, $postId) : ?Post {
 	try {
-		$postId = self::validateUuid ($postId);
+		$postId = self::validateUuid($postId);
 	} catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
 		throw(new \PDOException($exception->getMessage(), 0, $exception));
 	}
@@ -838,7 +838,37 @@ public static function getPostByPostId(\PDO $pdo, $postId) : ?Post {
 		$row = $statement->fetch();
 		if($row !== false) {
 			$post = new post($row["postId"], $row["$postAuthorId"], $row["[postContent"], $row["postDateTime"]);
-		} catch(\Exception $exception) {
+		}
+	catch
+		(\Exception $exception) {
 			throw(new \PDOException($exception->getMessage(), 0, $exception));
-		} return($post);
+		} return ($post);
 	}
+
+	public static function getPostByPostContent(\PDO $pdo, string $postContent): \SplFixedArray {
+		$postContent = trim($postContent);
+		$postContent = filter_var($postContent, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+		if(empty($postContent) === true) {
+			throw(new \PDOException("post content is invalid"));
+		}
+		$postContent = str_replace("_", "\\_", str_replace("%", "\\%", $postContent));
+		$query = "SELECT postId, postAuthorId, postContent, postDateTime FROM post WHERE postContent LIKE :postContent";
+		$statement = $pdo->prepare($query);
+		$postContent = "%$postContent%";
+		$parameters = ["postContent" => $postContent];
+		$statement->execute($parameters);
+
+		$posts = new \SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(\PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$post = new Post($row["postId"], $row["postAuthorId"], $row["postContent"], $row["postDateTime"]);
+				$posts[$posts->key()] = $post;
+				$posts->next();
+			} catch(\Exception $exception) {
+				throw(new \PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return ($posts);
+	}
+}
