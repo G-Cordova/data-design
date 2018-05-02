@@ -822,3 +822,23 @@ $newPostDate = self::validateDateTime($newPostDateTime);
 } 			$this->postDateTime = $postDateTime;
 }
 
+public static function getPostByPostId(\PDO $pdo, $postId) : ?Post {
+	try {
+		$postId = self::validateUuid ($postId);
+	} catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+		throw(new \PDOException($exception->getMessage(), 0, $exception));
+	}
+	$query = "SELECT postId, postAuthorId, postContent, postDateTime FROM post WHERE postId = :postId";
+	$statement = $pdo->prepare($query);
+	$parameters = ["postId" => $postId->getBytes()];
+	$statement->execute($parameters);
+	try {
+		$post = null;
+		$statement->setFetchMode(\PDO::FETCH_ASSOC);
+		$row = $statement->fetch();
+		if($row !== false) {
+			$post = new post($row["postId"], $row["$postAuthorId"], $row["[postContent"], $row["postDateTime"]);
+		} catch(\Exception $exception) {
+			throw(new \PDOException($exception->getMessage(), 0, $exception));
+		} return($post);
+	}
