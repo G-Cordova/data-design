@@ -226,6 +226,19 @@ class user {
 
 	private $userName;
 
+	public function __construct($userId, $userActivationCode, $userEmail, $userHash, $username = null) {
+		try {
+			$this->setUserId($newUserId);
+			$this->setUserActivationCode($newActivationCode);
+			$this->setUserEmail($newUserEmail);
+			$this->setUserHash($newUserHash);
+			$this->setUserName($newUserName);
+		} catch(InvalidArgumentException | /RangeException | /Exception | /TypeError $exception = null) {
+			throw (new $exceptionType($exception->getMessage(), 0, $exception));
+		}
+	}
+
+
 	/**
 	 * accessor method for user id
 	 * @return Uuid value of user id
@@ -235,15 +248,18 @@ class user {
 	}
 
 	/**
-	 * mutator method of
-	 * @param mixed $userId
+	 *
+	 * mutator method of user id
+	 *
+	 * @param Uuid|string $userId
 	 */
-	public function setUserId($userId) {
-		$this->userId = $userId;
+	public function setUserId($newUserId) {
+		$this->userId = $newUserId;
 	}
 
 	/**
-	 * @return mixed
+	 * accessor method for user activation code
+	 * @return string value of $userActivationCode
 	 */
 	public function getUserActivationCode() {
 		return $this->userActivationCode;
@@ -257,46 +273,100 @@ class user {
 	}
 
 	/**
-	 * @return mixed
+	 * accessor method for user email
+	 * @return string value of $userName
 	 */
 	public function getUserEmail() {
 		return $this->userEmail;
 	}
 
 	/**
-	 * @param mixed $userEmail
+	 * mutator method for user email
+	 *
+	 * @param string value of $userEmail
 	 */
 	public function setUserEmail($userEmail) {
 		$this->userEmail = $userEmail;
 	}
 
 	/**
-	 * @return mixed
+	 * accessor method for user hash
+	 * @return string value of $userHash
 	 */
 	public function getUserHash() {
 		return $this->userHash;
 	}
 
 	/**
-	 * @param mixed $userHash
+	 * mutator method for user hash
+	 *
+	 * @param string value of $userHash
 	 */
-	public function setUserHash($userHash) {
-		$this->userHash = $userHash;
+	public function setUserHash($newUserHash) {
+		$this->userHash = $newUserHash;
 	}
 
 	/**
-	 * @return mixed
+	 * get method for user name
+	 * @return string value of $userName
 	 */
 	public function getUserName() {
 		return $this->userName;
 	}
 
 	/**
-	 * @param mixed $userName
+	 * mutator method for user name
+	 *
+	 * @param string value of $userName
 	 */
-	public function setUserName($userName) {
-		$this->userName = $userName;
+	public function setUserName($newUserName) {
+		$this->userName = $newUserName;
 	}
 
 
+}
+
+
+class hype {
+
+	private $hypeUserId;
+
+	private $hypePostId;
+
+	public function __construct($hypeUserId, $hypePostId = null) {
+	}
+
+	/**
+	 * accessor method for hype user id
+	 * @return Uuid|string value of $hypeUserId
+	 */
+	public function getHypeUserId() {
+		return $this->hypeUserId;
+	}
+
+	/**
+	 * mutator metod for hype user id
+	 *
+	 * @param Uuid|string value of $hypeUserId
+	 */
+	public function setHypeUserId($hypeUserId) {
+		$this->hypeUserId = $hypeUserId;
+	}
+
+	/**
+	 * accessor method for hype post id
+	 * @return Uuid|string value of hype post id
+	 */
+	public function getHypePostId() {
+		return $this->hypePostId;
+	}
+
+	/**
+	 * mutator method
+	 *
+	 * @param Uuid|string value of $hypePostId
+	 */
+	public function setHypePostId($hypePostId) {
+		$this->hypePostId = $hypePostId;
+	}
 }
